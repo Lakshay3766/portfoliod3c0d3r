@@ -5,6 +5,7 @@ import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
 import ViewCounter from '@/components/ViewCounter'
 import Image from '@/components/Image'
+import GeneratedThumb from '@/components/GeneratedThumb'
 
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')
@@ -72,28 +73,30 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                       </dd>
                     </dl>
                     {cover ? (
-                      <div className="mb-3 overflow-hidden rounded-md">
+                      <div className="mb-3 overflow-hidden rounded-xl shadow-lg ring-1 ring-white/10">
                         {String(cover).toLowerCase().endsWith('.svg') ? (
-                          <img
-                            src={cover}
-                            alt={title}
-                            width={960}
-                            height={540}
-                            className="h-48 w-full bg-gray-900 object-contain p-2"
-                          />
+                          <div className="flex h-48 w-full items-center justify-center bg-gradient-to-br from-gray-800 via-fuchsia-700 to-indigo-700">
+                            <img
+                              src={cover}
+                              alt={title}
+                              width={960}
+                              height={540}
+                              className="h-40 w-auto object-contain p-4"
+                            />
+                          </div>
                         ) : (
                           <Image
                             src={cover}
                             alt={title}
                             width={960}
                             height={540}
-                            className="h-48 w-full object-cover"
+                            className="h-48 w-full rounded-xl object-cover"
                           />
                         )}
                       </div>
                     ) : (
-                      <div className="mb-3 flex h-48 w-full items-center justify-center rounded-md border border-dashed border-gray-300 bg-gray-50 text-sm text-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400">
-                        No thumbnail
+                      <div className="mb-3">
+                        <GeneratedThumb title={title} tags={tags} />
                       </div>
                     )}
                     <div className="space-y-5">

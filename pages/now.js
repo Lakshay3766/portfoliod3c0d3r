@@ -3,6 +3,11 @@ import { PageSEO } from '@/components/SEO'
 import { dayjs } from '@/components/DayJS'
 import { useEffect, useState } from 'react'
 import siteMetadata from '@/data/siteMetadata'
+import CyberBookCard from '@/components/CyberBookCard'
+import RecommendCard from '@/components/RecommendCard'
+import BookRecommendCard from '@/components/BookRecommendCard'
+import cyberToolsData from '@/data/cyberToolsData'
+import cyberBooksData from '@/data/cyberBooksData'
 import { getCurrentlyReading } from '@/lib/goodreads'
 import fetcher from 'lib/fetcher'
 import useSWR from 'swr'
@@ -63,7 +68,8 @@ export default function Now(currentlyReading) {
   }
 
   var year = new Date().getFullYear()
-  var month = new Date().getMonth()
+  // Month from Date() is 0-indexed; convert to human-friendly 1–12
+  var month = new Date().getMonth() + 1
   var date = new Date().getDate()
   var hour = new Date().getHours()
   var minute = new Date().getMinutes()
@@ -123,6 +129,29 @@ export default function Now(currentlyReading) {
   else if (age.years == 0 && age.months > 0 && age.days == 0) ageString = age.months + ' months old'
   else ageString = "Welcome to Earth! <br> It's first day on Earth!"
 
+  // Fallback book in case API fails or returns empty
+  const defaultBook = {
+    title: 'The Sympathizer (The Sympathizer #1)',
+    author: 'Viet Thanh Nguyen',
+    url: 'https://www.goodreads.com/book/show/23013759-the-sympathizer',
+  }
+  const currentBook =
+    Array.isArray(currentlyReadingData) && currentlyReadingData.length > 0
+      ? currentlyReadingData[0]
+      : defaultBook
+
+  // Client-only updated timestamp to avoid hydration mismatch
+  const [autoUpdatedString, setAutoUpdatedString] = useState('')
+  useEffect(() => {
+    const now = new Date()
+    const pad2 = (n) => String(n).padStart(2, '0')
+    const m = now.getMonth() + 1
+    const s = `${pad2(now.getDate())}-${pad2(m)}-${now.getFullYear()} ${pad2(now.getHours())}:${pad2(
+      now.getMinutes()
+    )}:${pad2(now.getSeconds())}`
+    setAutoUpdatedString(s)
+  }, [])
+
   return (
     <>
       <PageSEO
@@ -134,7 +163,7 @@ export default function Now(currentlyReading) {
         <div className="my-2">
           <h3>Where am I and what am I doing?</h3>
           <div className=" mt-4 mb-6 text-xs text-neutral-700 dark:text-neutral-400">
-            This page was automatically updated @ {date}-{month}-{year} {hour}:{minute}:{second}
+            This page was automatically updated @ {autoUpdatedString}
           </div>
         </div>
         {/* Misc */}
@@ -155,18 +184,15 @@ export default function Now(currentlyReading) {
               </a>
             </div>
 
-            <div className="mt-2 mb-10 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
-              <span className="ml-2 font-semibold">Reading:</span>{' '}
-              <a
-                href={currentlyReadingData[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline-offset-1 hover:underline"
-              >
-                <span>{currentlyReadingData[0].title}</span> by{' '}
-                <span>{currentlyReadingData[0].author}</span>
-              </a>
-              <br />
+            <div className="mt-2 mb-10 w-1/2">
+              <div className="mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300">
+                Cyber Book Reading:
+              </div>
+              <CyberBookCard
+                title={currentBook.title}
+                author={currentBook.author}
+                href={currentBook.url}
+              />
             </div>
           </div>
 
@@ -228,34 +254,48 @@ export default function Now(currentlyReading) {
           &#126;&#126;&#126;
         </div>
 
-        {/* Personal life */}
-        <div className="pt-6">
-          <p>
-            I've been slowly building this website, trying to share interesting things with anyone
-            who wants to read it.{' '}
-            <Link
-              href={'https://www.swyx.io/learn-in-public'}
-              className="special-underline no-underline dark:text-gray-100 hover:dark:text-gray-100"
-            >
-              This
-            </Link>{' '}
-            article is a great reason to start your blog.
+        {/* Personal life section intentionally removed per request */}
+
+        {/* Cyber Toolkit */}
+        <div className="mt-8">
+          <h3 className="mb-2 text-xl font-semibold">Cyber Toolkit</h3>
+          <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+            Tools I’m using or exploring for pentesting, OSINT, DFIR, and reversing.
           </p>
-          <br />
-          <p>
-            I recently started to draft a post about my new Obsidian workflow, it will be a good
-            one!
-          </p>
+          <div className="flex flex-wrap">
+            {cyberToolsData.map((tool) => (
+              <RecommendCard
+                key={tool.title}
+                title={tool.title}
+                description={tool.description}
+                href={tool.href}
+                tags={tool.tags}
+              />
+            ))}
+          </div>
         </div>
-        <div className="mt-3 text-sm">
-          For more examples of folks with /now pages, check out{' '}
-          <Link
-            href={'https://nownownow.com/'}
-            className="special-underline no-underline dark:text-gray-100 hover:dark:text-gray-100"
-          >
-            nownownow.com
-          </Link>
-          .
+
+        <div className="justify-center text-center text-2xl font-medium text-gray-200 dark:text-gray-600">
+          &#126;&#126;&#126;
+        </div>
+
+        {/* Cyber Books */}
+        <div className="mt-8">
+          <h3 className="mb-2 text-xl font-semibold">Cyber Books</h3>
+          <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+            Security books I recommend or am currently reading.
+          </p>
+          <div className="flex flex-wrap">
+            {cyberBooksData.map((book) => (
+              <BookRecommendCard
+                key={book.title}
+                title={book.title}
+                description={book.description}
+                href={book.href}
+                rating={book.rating}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>
