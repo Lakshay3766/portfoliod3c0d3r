@@ -12,12 +12,3 @@ model views {
   slug  String @id
   count Int    @default(1)
 }
-
-model guestbook {
-  id         Int      @id @default(autoincrement())
-  email      String
-  body       String
-  created_by String
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now())
-}
