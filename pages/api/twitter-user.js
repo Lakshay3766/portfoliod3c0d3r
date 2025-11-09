@@ -2,20 +2,25 @@
 import { getUser } from '@/lib/twitter'
 
 export default async (_, res) => {
-  const response = await getUser('_d3c0d3r_')
-  const { data } = response
+  // Read username from site metadata; gracefully handle absence
+  const { default: siteMetadata } = await import('@/data/siteMetadata')
+  const rawHandle = siteMetadata?.socialAccount?.twitter || ''
+  const username = rawHandle.replace('@', '')
 
-  if (!response) {
-    const user = null
-
-    return res.status(200).json({ user })
+  if (!username) {
+    res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=1800')
+    return res.status(200).json({ user: null })
   }
 
-  const user = {
-    ...data,
+  const response = await getUser(username)
+
+  if (!response || !response.data) {
+    res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=300')
+    return res.status(200).json({ user: null })
   }
+
+  const user = { ...response.data }
 
   res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200')
-
   return res.status(200).json({ user })
 }

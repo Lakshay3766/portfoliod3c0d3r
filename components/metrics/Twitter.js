@@ -1,20 +1,23 @@
 import useSWR from 'swr'
 import fetcher from 'lib/fetcher'
 import MetricCard from 'components/metrics/Card'
+import siteMetadata from '@/data/siteMetadata'
 
 export default function TwitterCard({ type }) {
-  const { data } = useSWR('/api/twitter-user', fetcher)
+  // Hide Twitter metrics entirely if no handle is configured
+  const handle = (siteMetadata?.socialAccount?.twitter || '').replace('@', '')
+  const { data } = useSWR(handle ? '/api/twitter-user' : null, fetcher)
 
-  if (!data) {
+  if (!handle || !data || !data.user) {
     return null
   }
 
-  let followers = data?.user?.public_metrics?.followers_count
-  let following = data?.user?.public_metrics?.following_count
-  let count = data?.user?.public_metrics?.tweet_count
-  let username = data?.user?.username
-
-  const link = 'https://twitter.com/_d3c0d3r_'
+  const followers = data?.user?.public_metrics?.followers_count
+  const following = data?.user?.public_metrics?.following_count
+  const count = data?.user?.public_metrics?.tweet_count
+  // Prefer configured handle for link; fall back to API username
+  const username = handle || data?.user?.username
+  const link = `https://twitter.com/${username}`
 
   return (
     <>

@@ -4,7 +4,7 @@ This repository contains a Next.js + Tailwind CSS personal blog/portfolio config
 
 How to deploy on Vercel
 
-1. Connect this GitHub repository (https://github.com/Lakshay3766/portfoliod3c0d3r) to Vercel via the Vercel dashboard.
+1. Connect your GitHub repository (e.g., https://github.com/d3c0d3r/portfoliod3c0d3r) to Vercel via the Vercel dashboard.
 2. Ensure the following environment variables are set in the Vercel project Settings > Environment Variables before deploying to Production:
    - DATABASE_URL — (production database connection). For local dev we use SQLite (file:./dev.db), but for production use a managed database and set its connection string here.
    - NEXTAUTH_SECRET — If you use next-auth in production.

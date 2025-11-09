@@ -3,8 +3,9 @@ import { PageSEO } from '@/components/SEO'
 import Link from '@/components/Link'
 import Experience from '@/components/Experience'
 import experienceData from '@/data/experienceData'
+import siteMetadata from '@/data/siteMetadata'
 import { RoughNotation } from 'react-rough-notation'
-import { AiOutlineTwitter } from 'react-icons/ai'
+import { AiOutlineMail } from 'react-icons/ai'
 
 export default function AuthorLayout({ children, frontMatter }) {
   const {
@@ -46,13 +47,10 @@ export default function AuthorLayout({ children, frontMatter }) {
             <div className="text-gray-500 dark:text-gray-400">{company}</div>
             <div className="flex flex-col pt-3">
               <a
-                className="rounded-full border px-8 py-2 text-center text-sm font-light text-gray-700 transition-colors hover:border-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white hover:shadow dark:text-white"
-                href="https://twitter.com/messages/compose?recipient_id=4302974298&text=Hey d3c0d3r"
-                data-screen-name="@_d3c0d3r_"
-                target="_blank"
-                rel="noreferrer noopener"
+                className="rounded-full border px-8 py-2 text-center text-sm font-light text-gray-700 transition-colors hover:border-pink-500 hover:bg-pink-500 hover:text-white hover:shadow dark:text-white"
+                href={`mailto:${siteMetadata.email}?subject=Hello%20${encodeURIComponent(name)}`}
               >
-                <AiOutlineTwitter className="mr-2 mb-0.5 inline h-5 w-5" />
+                <AiOutlineMail className="mr-2 mb-0.5 inline h-5 w-5" />
                 Say Hi!
               </a>
             </div>
@@ -130,7 +128,7 @@ export default function AuthorLayout({ children, frontMatter }) {
               projects with new people. Feel free to reach out if you have anything to talk about —
               you can reach me at{' '}
               <Link
-                href={'mailto:lakshaymadaan376@gmail.com'}
+                href={`mailto:${siteMetadata.email}`}
                 className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
               >
                 Mail

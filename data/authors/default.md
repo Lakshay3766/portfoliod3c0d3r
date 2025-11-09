@@ -1,32 +1,47 @@
 ---
-name: Cyber One
+name: Parth
 avatar: /image.png
-occupation: Cybersecurity Intern
-company: Cyber Cell
-email: lakshaymadaan376@gmail.com
-twitter: ''
-linkedin: https://linkedin.com/in/LakshayMadaan376
-github: https://github.com/lakshay3766
+occupation: Cybersecurity
+company: 
+email: 
+twitter: 
+linkedin: 
+github: 
 text1: |
-  I am a Cybersecurity student and practitioner currently working with Cyber Cell. My focus areas are penetration testing, threat hunting, digital forensics, incident response, and SOC operations. I build automation tools for phishing detection and PII leak prevention, and contribute to OSINT investigations used in real cyber cell cases. Currently, I am focused on building data pipelines and automating workflows in previous engagements.
+  I am a cybersecurity practitioner focused on vulnerability assessment and penetration testing (VAPT), OSINT, digital forensics, incident response, and SOC operations.
+  I work on building security automation—especially phishing detection and PII leak prevention—and contribute to investigations with actionable reporting and tooling.
 
-  This is what I am doing right now: building automation and tooling for investigations and defensive operations, and improving observability in SOC workflows.
+  I enjoy learning and shipping practical tools. Recent work spans SIEM monitoring, malware analysis, defensive automation, and hands-on forensics.
 
-  I am always looking to learn new things. I am currently working on projects related to cybersecurity tooling, OSINT, and defensive automation. I am actively looking for remote internships in cybersecurity or data-related roles.
-
-  I am a strong advocate for open source and I am always interested in collaborating on new projects. Feel free to reach out via email or other channels if you'd like to connect.
-
-  Here you can see what I use on a daily basis (see the Uses page for details).
+  I’m open to collaboration on security engineering, threat intelligence, and OSINT projects.
 text2: |
-  About this site:
+  Education
+  - Cyber Security — details to be updated
+  - Class XII (CBSE)
 
-  Welcome — this site is my cybersecurity portfolio and blog where I publish research, tooling, and write-ups on OSINT, threat intelligence, incident response, and defensive automation. Opinions are my own.
-
-  The site started from a Next.js + Tailwind starter template and was adapted using several helpful community resources:
-  - Timothy's Next.js + Tailwind CSS template (starter)
-  - Einar Guðjónsson (Now page, navigation style, animations)
+  Skills
+  - Programming: C++, Python, C, HTML, CSS, JavaScript, Flutter, Dart
+  - Cybersecurity: Penetration Testing, VAPT, Threat Hunting, Digital Forensics, Incident Response, Malware Analysis, Reverse Engineering, Threat Intelligence, SOC Operations, Red/Blue Teaming
+  - Web/API Security: SQLi, XSS, CSRF, SSRF, RCE; API Security; Cloud Security (AWS, Azure); AD Security; OSINT; Social Engineering; IDS/IPS (Snort, Suricata)
+  - Tools & Platforms: Burp Suite, OWASP ZAP, Metasploit, Nmap, Wireshark, Nessus, Hydra, Hashcat, Git, Linux, Docker, AWS, Azure, Figma
 text3: |
-  Education: B.Tech in Cyber Security, Panipat Institute of Engineering and Technology (Expected Graduation: May 2026).
+  Experience
+  - Cybersecurity Intern, HexDefender, India (Sept 2025 – Present): VAPT for enterprise apps and networks; Army Intelligence case investigations; SOC operations (SIEM, malware analysis, incident response); phishing and PII automation.
+  - Cyber Rakshak Intern, Cyber Rakshak, India (July 2025 – Sept 2025): OSINT and social media analysis; digital forensics reports; investigations of fraud, phishing, and harassment.
+  - Intern, Gurugram Cyber Cell (GPCSSI), India (June 2025 – July 2025): Secure coding and vulnerability assessment; threat mitigation exposure; OSINT practice and forensics under guidance.
+  - Student Director, Unstop (Dare2Compete), India (Oct 2024 – May 2025): Led engagement campaigns; represented the organization across student and professional platforms.
 
-  Projects: PII & Phishing Detection System; OSINT Cyber Cell Tool; Access Denied (real-time malware detection mobile app); Automatic SOS App.
+  Projects
+  - PII & Phishing Detection System — AI-powered real-time PII leak and phishing URL detection.
+  - OSINT Cyber Cell Tool — Intelligence gathering system used in real Cyber Cell cases.
+  - Access Denied (2nd Prize) — Real-time malware detection mobile app.
+  - Automatic SOS App — Emergency safety app enhancing women’s security.
+
+  Achievements
+  - 2nd Prize, Microsoft Hackathon (2025)
+  - Top 5 Finalist, Google Gen AI Hackathon (2024)
+  - Finalist, Smart India Hackathon (SIH) (2024)
+  - Winner, Maestros (Software & Hardware) (2024)
+  - Winner, Manthan – National Hackathon (2023)
+  - Winner, Ideathon (PIET) (2023)
 ---

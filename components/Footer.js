@@ -1,5 +1,6 @@
 import { currentDayName } from '@/lib/utils/dateUtils'
 import Link from './Link'
+import siteMetadata from '@/data/siteMetadata'
 import NowPlayingFooter from './NowPlayingFooter'
 
 export default function Footer() {
@@ -11,14 +12,14 @@ export default function Footer() {
         </div>
         <div className="mb-2 hidden text-sm text-gray-500 dark:text-gray-400 md:flex">
           <div className="mx-1">
-            <Link href="https://d3c0d3r.vercel.app" className="link-underline">
-              d3c0d3r{` © ${new Date().getFullYear()}`}
+            <Link href={siteMetadata.website || siteMetadata.siteUrl || '/'} className="link-underline">
+              {siteMetadata.author}{` © ${new Date().getFullYear()}`}
             </Link>
           </div>
           {`•`}
           <div className="mx-1">
-            <Link href="https://qod.shakiltech.com/" className="link-underline">
-              Have a good {currentDayName()}!
+            <Link href="/projects" className="link-underline">
+              Explore Cyber Projects
             </Link>
           </div>
           {`•`}
@@ -30,8 +31,8 @@ export default function Footer() {
         </div>
         <div className="mb-2 text-sm text-gray-500 dark:text-gray-400 sm:block md:hidden lg:hidden">
           <div className="mx-1">
-            <Link href="https://d3c0d3r.vercel.app" className="link-underline">
-              d3c0d3r{` © ${new Date().getFullYear()}`}
+            <Link href={siteMetadata.website || siteMetadata.siteUrl || '/'} className="link-underline">
+              {siteMetadata.author}{` © ${new Date().getFullYear()}`}
             </Link>
           </div>
         </div>

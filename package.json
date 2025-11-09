@@ -4,7 +4,7 @@
   "private": true,
   "author": {
     "name": "d3c0d3r",
-    "email": "d3c0d3r2000@gmail.com",
+    "email": "d3c0d3r376@gmail.com",
     "url": "https://d3c0d3r.vercel.app/"
   },
   "scripts": {
@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pycoder2000/blog.git"
+    "url": "git+https://github.com/d3c0d3r/blog.git"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",

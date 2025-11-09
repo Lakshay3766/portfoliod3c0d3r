@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
       <div className="mx-auto max-w-3xl overflow-hidden">
         <div className="prose pt-7 text-gray-600 dark:text-gray-300">
           <h1 className="dark:text-gray-300">Privacy Policy</h1>
-          <p>Last updated: July 11, 2022</p>
+          <p>Last updated: November 9, 2025</p>
           <p>
             This Privacy Policy describes Our policies and procedures on the collection, use and
             disclosure of Your information when You use the Service and tells You about Your privacy
@@ -104,11 +104,11 @@ export default function PrivacyPolicy() {
                 <strong className="dark:text-gray-100">Website</strong> refers to Blog, accessible
                 from{' '}
                 <a
-                  href="https://musing.vercel.app/"
+                  href={siteMetadata.siteUrl}
                   rel="external nofollow noopener noreferrer"
                   target="_blank"
                 >
-                  https://musing.vercel.app/
+                  {siteMetadata.siteUrl}
                 </a>
               </p>
             </li>
@@ -471,11 +471,11 @@ export default function PrivacyPolicy() {
             <li>
               By email:{' '}
               <a
-                href="mailto:lakshaymadaan376@gmail.com"
+                href={`mailto:${siteMetadata.email}`}
                 rel="external nofollow noopener noreferrer"
                 target="_blank"
               >
-                lakshaymadaan376@gmail.com
+                {siteMetadata.email}
               </a>
             </li>
           </ul>
