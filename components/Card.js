@@ -19,9 +19,21 @@ const Card = ({ title, description, imgSrc, href, github, tech1, tech2, tech3 })
           <div className="relative h-40 w-full overflow-hidden">
             <Link href={`/projects/${slug}`} className="block h-full w-full">
               {String(imgSrc).toLowerCase().endsWith('.svg') ? (
-                <img src={imgSrc} alt={title} width={544} height={160} className="h-full w-full object-cover" />
+                <img
+                  src={imgSrc}
+                  alt={title}
+                  width={544}
+                  height={160}
+                  className="h-full w-full bg-gray-900 object-contain p-2"
+                />
               ) : (
-                <Image src={imgSrc} alt={title} width={544} height={160} className="h-full w-full object-cover" />
+                <Image
+                  src={imgSrc}
+                  alt={title}
+                  width={544}
+                  height={160}
+                  className="h-full w-full object-cover"
+                />
               )}
             </Link>
           </div>

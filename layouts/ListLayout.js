@@ -71,7 +71,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                         views
                       </dd>
                     </dl>
-                    {cover && (
+                    {cover ? (
                       <div className="mb-3 overflow-hidden rounded-md">
                         {String(cover).toLowerCase().endsWith('.svg') ? (
                           <img
@@ -79,7 +79,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                             alt={title}
                             width={960}
                             height={540}
-                            className="h-48 w-full object-cover"
+                            className="h-48 w-full bg-gray-900 object-contain p-2"
                           />
                         ) : (
                           <Image
@@ -90,6 +90,10 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                             className="h-48 w-full object-cover"
                           />
                         )}
+                      </div>
+                    ) : (
+                      <div className="mb-3 flex h-48 w-full items-center justify-center rounded-md border border-dashed border-gray-300 bg-gray-50 text-sm text-gray-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400">
+                        No thumbnail
                       </div>
                     )}
                     <div className="space-y-5">

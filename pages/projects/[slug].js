@@ -22,7 +22,21 @@ const TechBadge = ({ children }) => (
 
 export default function ProjectPage({ project }) {
   if (!project) return null
-  const { title, description, imgSrc, href, github, tech1, tech2, tech3 } = project
+  const {
+    title,
+    description,
+    imgSrc,
+    href,
+    github,
+    tech1,
+    tech2,
+    tech3,
+    overview,
+    features = [],
+    stack = [],
+    challenges = [],
+    outcomes = [],
+  } = project
   const isSvg = imgSrc && String(imgSrc).toLowerCase().endsWith('.svg')
 
   return (
@@ -33,7 +47,7 @@ export default function ProjectPage({ project }) {
           {imgSrc && (
             <div className="relative h-64 w-full overflow-hidden">
               {isSvg ? (
-                <img src={imgSrc} alt={title} className="h-full w-full object-cover" />
+                <img src={imgSrc} alt={title} className="h-full w-full bg-gray-900 object-contain p-3" />
               ) : (
                 <Image
                   src={imgSrc}
@@ -83,6 +97,73 @@ export default function ProjectPage({ project }) {
                 Back to Projects
               </Link>
             </div>
+
+            {/* Overview */}
+            {overview && (
+              <section className="mt-8">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Overview</h2>
+                <p className="mt-2 text-gray-700 dark:text-gray-200">{overview}</p>
+              </section>
+            )}
+
+            {/* Features */}
+            {features?.length > 0 && (
+              <section className="mt-8">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Key Features</h2>
+                <ul className="mt-2 list-disc space-y-2 pl-6">
+                  {features.map((f) => (
+                    <li key={f} className="text-gray-700 dark:text-gray-200">
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Tech Stack */}
+            {stack?.length > 0 && (
+              <section className="mt-8">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Tech Stack</h2>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {stack.map((s) => (
+                    <span
+                      key={s}
+                      className="rounded-md border border-gray-300 px-3 py-1 text-sm text-gray-900 dark:border-gray-600 dark:text-gray-100"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Challenges */}
+            {challenges?.length > 0 && (
+              <section className="mt-8">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Challenges</h2>
+                <ul className="mt-2 list-disc space-y-2 pl-6">
+                  {challenges.map((c) => (
+                    <li key={c} className="text-gray-700 dark:text-gray-200">
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Outcomes */}
+            {outcomes?.length > 0 && (
+              <section className="mt-8">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">Outcomes</h2>
+                <ul className="mt-2 list-disc space-y-2 pl-6">
+                  {outcomes.map((o) => (
+                    <li key={o} className="text-gray-700 dark:text-gray-200">
+                      {o}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
           </div>
         </div>
       </div>
