@@ -1,0 +1,33 @@
+---
+title: Privacy & Surveillance in 2025
+date: '2025-11-09'
+tags: ['cyber', 'privacy']
+draft: false
+summary: An exploration of surveillance risks, responsible defenses, and privacy-preserving architecture patterns for modern applications.
+---
+<img className="inline" src="/static/images/Blog/privacy-2025.jpg" alt="Privacy 2025" />
+
+Surveillance technologies and data-centric services now permeate nearly every layer of the application stack. While many such systems enable productivity and safety, they also create avenues for abuse and systemic risk.
+
+This post summarizes pragmatic approaches to architect systems that preserve user privacy while remaining operationally effective.
+
+## Threats
+
+- Mass collection and centralized telemetry increase exposure when a single breach occurs.
+- On-device analysis can be subverted if the device or firmware is compromised.
+- Legal or jurisdictional pressures can force service providers to change safeguards overnight.
+
+## Design patterns for privacy-preserving systems
+
+- Minimal data collection: collect only what you need; prefer ephemeral or aggregated telemetry.
+- Client-side processing with verifiable attestations: whenever possible, run sensitive transforms client-side and attest results to servers using privacy-preserving proofs.
+- Differential privacy and aggregation: for analytics, aggregate and add calibrated noise to limit identifiability.
+
+## Operational recommendations
+
+1. Keep a documented data minimization policy and enforce it with automated checks.
+2. Use encryption-in-transit everywhere and encrypt at rest with per-tenant keys where applicable.
+3. Maintain clear legal & compliance playbooks for cross-border data requests and notify users when permissible.
+4. Run regular privacy threat models and tabletop exercises for new features.
+
+Users and engineers can both contribute to better privacy outcomes: engineers by designing systems that default to minimal exposure, and users by preferring services that provide transparency and verifiable guarantees.
