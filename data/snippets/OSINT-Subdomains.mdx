@@ -1,0 +1,32 @@
+---
+title: 'OSINT: Subdomains via crt.sh'
+date: '2025-11-09'
+tags: [osint, recon, javascript]
+draft: false
+summary: 'Enumerate subdomains by querying Certificate Transparency logs'
+images: []
+layout: PostSimple
+---
+
+```js showLineNumbers
+import fetch from 'node-fetch'
+
+async function crtsh(domain) {
+  const url = `https://crt.sh/?q=${encodeURIComponent('%.' + domain)}&output=json`
+  const res = await fetch(url)
+  const data = await res.json()
+  // crt.sh returns duplicate names; normalize
+  const names = new Set()
+  for (const row of data) {
+    const commonName = (row.name_value || '').replace(/\n/g, '\n').split('\n')
+    commonName.forEach((n) => names.add(n.trim()))
+  }
+  return Array.from(names).sort()
+}
+
+crtsh('example.com')
+  .then((subs) => console.log(subs.slice(0, 50)))
+  .catch((e) => console.error(e))
+```
+
+> Tip: Cross-check with `dnsdumpster`, `amass`, or `assetfinder` for broader coverage.

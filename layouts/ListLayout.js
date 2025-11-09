@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
 import ViewCounter from '@/components/ViewCounter'
+import Image from '@/components/Image'
 
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')
@@ -53,14 +54,15 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           {displayPosts.map((frontMatter) => {
             const { slug, date, title, summary } = frontMatter
             const tags = Array.isArray(frontMatter.tags) ? frontMatter.tags : []
+            const images = Array.isArray(frontMatter.images) ? frontMatter.images : []
+            const cover = images.length > 0 ? images[0] : null
             return (
-              <Link
-                href={`/blog/${slug}`}
-                key={slug}
-                className="group flex bg-transparent bg-opacity-20 px-2 transition duration-100 hover:scale-105 hover:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                <li key={slug} className="py-6">
-                  <article className="space-y-2 bg-transparent bg-opacity-20 p-2 transition duration-200 hover:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-3">
+              <li key={slug} className="py-6">
+                <Link
+                  href={`/blog/${slug}`}
+                  className="group flex bg-transparent bg-opacity-20 px-2 transition duration-100 hover:scale-105 hover:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800"
+                >
+                  <article className="space-y-2 bg-transparent bg-opacity-20 p-2 transition duration-200 hover:rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800">
                     <dl>
                       <dd className="text-sm font-normal leading-6 text-gray-500 dark:text-gray-400">
                         <time dateTime={date}>{formatDate(date)}</time>
@@ -69,21 +71,44 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                         views
                       </dd>
                     </dl>
-                    <div className="space-y-5 xl:col-span-4">
+                    {cover && (
+                      <div className="mb-3 overflow-hidden rounded-md">
+                        {String(cover).toLowerCase().endsWith('.svg') ? (
+                          <img
+                            src={cover}
+                            alt={title}
+                            width={960}
+                            height={540}
+                            className="h-48 w-full object-cover"
+                          />
+                        ) : (
+                          <Image
+                            src={cover}
+                            alt={title}
+                            width={960}
+                            height={540}
+                            className="h-48 w-full object-cover"
+                          />
+                        )}
+                      </div>
+                    )}
+                    <div className="space-y-5">
                       <div className="space-y-1">
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link
-                              href={`/blog/${slug}`}
-                              className="text-gray-900 transition duration-500 ease-in-out hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-500"
-                            >
+                            <span className="text-gray-900 transition duration-500 ease-in-out group-hover:text-primary-500 dark:text-gray-100 group-hover:dark:text-primary-500">
                               {title}
-                            </Link>
+                            </span>
                           </h2>
                         </div>
                         <div className="flex flex-wrap">
                           {tags.map((tag) => (
-                            <Tag key={tag} text={tag} />
+                            <span
+                              key={tag}
+                              className="mt-2 mr-3 rounded-lg border border-primary-500 py-1 px-3 text-sm font-medium uppercase text-primary-500"
+                            >
+                              {tag.split(' ').join('-')}
+                            </span>
                           ))}
                         </div>
                         <div className="prose max-w-none pt-5 text-gray-500 dark:text-gray-400">
@@ -92,8 +117,8 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                       </div>
                     </div>
                   </article>
-                </li>
-              </Link>
+                </Link>
+              </li>
             )
           })}
         </ul>

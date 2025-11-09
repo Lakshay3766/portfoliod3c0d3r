@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <pattern id="grid3" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#14b8a622" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g3)"/>
+  <rect width="1200" height="630" fill="url(#grid3)"/>
+  <g transform="translate(600,315)">
+    <rect x="-160" y="-80" width="320" height="160" rx="20" fill="#0ea5e9" opacity="0.25"/>
+    <g>
+      <rect x="-120" y="-40" width="240" height="120" rx="16" fill="none" stroke="#94a3b8" stroke-width="8"/>
+      <path d="M-30 -10h60v60h-60z" fill="none" stroke="#22d3ee" stroke-width="8"/>
+      <path d="M-70 0l-50 50M70 0l50 50" stroke="#e5e7eb" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(0,0)">
+      <rect x="-24" y="-60" width="48" height="120" rx="8" fill="#22d3ee"/>
+      <circle cx="0" cy="0" r="48" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+      <path d="M-6 -10h12v28h-12z" fill="#0f172a"/>
+    </g>
+  </g>
+  <text x="600" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="40" fill="#e5e7eb">Platform Lock‑in & Cyber Risk</text>
+</svg>

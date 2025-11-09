@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#1f2937"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#0ea5e922" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <g transform="translate(600,315)">
+    <circle r="140" fill="none" stroke="#93c5fd" stroke-width="6"/>
+    <path d="M-110 0h220M0 -110v220" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-60 -20l40 40l80 -80" fill="none" stroke="#22d3ee" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <text x="600" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="42" fill="#e5e7eb">Modern Cyber Threats — 2025</text>
+</svg>

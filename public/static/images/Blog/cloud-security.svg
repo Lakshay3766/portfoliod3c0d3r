@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <pattern id="grid6" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#34d39922" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g6)"/>
+  <rect width="1200" height="630" fill="url(#grid6)"/>
+  <g transform="translate(600,315)">
+    <path d="M-140 30a80 60 0 0 1 100 -60a90 70 0 0 1 130 40a80 60 0 0 1 -90 80h-110a60 50 0 0 1 -30 -60z" fill="#ffffff22" stroke="#d1fae5" stroke-width="6"/>
+    <path d="M-20 -10h40v80h-40z" fill="#22d3ee"/>
+    <circle cx="0" cy="20" r="12" fill="#0f172a"/>
+  </g>
+  <text x="600" y="560" text-anchor="middle" font-family="Inter,Segoe UI,Arial" font-size="40" fill="#e5e7eb">Cloud Security Best Practices</text>
+</svg>

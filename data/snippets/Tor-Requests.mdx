@@ -1,0 +1,52 @@
+---
+title: 'Tor Requests via SOCKS Proxy'
+date: '2025-11-09'
+tags: [darkweb, tor, privacy, javascript]
+draft: false
+summary: 'Route HTTP requests through Tor using a SOCKS5 proxy'
+images: []
+layout: PostSimple
+---
+
+## Axios + SOCKS Proxy Agent (Node.js)
+
+Use Tor's local SOCKS proxy (`127.0.0.1:9050`). Ensure Tor is running.
+
+```bash
+# Windows (Tor Browser): defaults to 9150
+# Linux/macOS (tor service): defaults to 9050
+```
+
+```js showLineNumbers
+import axios from 'axios'
+import { SocksProxyAgent } from 'socks-proxy-agent'
+
+// If using Tor Browser on Windows, change to 127.0.0.1:9150
+const torSocks = 'socks5h://127.0.0.1:9050'
+const agent = new SocksProxyAgent(torSocks)
+
+async function getOnion(url) {
+  try {
+    const res = await axios.get(url, { httpAgent: agent, httpsAgent: agent, timeout: 15000 })
+    console.log('Status:', res.status)
+    console.log('Body:', res.data?.slice?.(0, 250) || 'OK')
+  } catch (err) {
+    console.error('Tor request failed:', err.message)
+  }
+}
+
+// Example: fetch a .onion (use a legal, allowed resource you trust)
+getOnion('http://expyuzz4wqqyqhjn.onion/')
+```
+
+## curl through Tor
+
+```bash
+# Requires torsocks or proxy via socks5
+torsocks curl -m 15 http://expyuzz4wqqyqhjn.onion/
+
+# Or with curl's socks5 support
+curl --socks5-hostname 127.0.0.1:9050 http://expyuzz4wqqyqhjn.onion/
+```
+
+> Note: Respect local laws and site policies. Only access legal content.

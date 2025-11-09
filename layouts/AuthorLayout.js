@@ -158,31 +158,21 @@ export default function AuthorLayout({ children, frontMatter }) {
               you can see what I use on daily basis
             </p>
             <br />
-            <h1>About this site</h1>
+            <h1>Tech Stack</h1>
             <p>
-              Welcome to my home on the internet. This site serves as a blog and portfolio, where I
-              share insights on cybersecurity, OSINT, and threat intelligence. Opinions are my own.
+              This site is built with a modern, lightweight stack focused on performance and clean
+              content authoring.
             </p>
-            <p>I built this site with inspiration from the amazing community:</p>
             <ul>
-              <li>
-                <Link
-                  href={'https://github.com/timlrx/tailwind-nextjs-starter-blog'}
-                  className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
-                >
-                  Timothy's Next.js and Tailwind CSS template
-                </Link>
-                : The foundation for this project.
-              </li>
-              <li>
-                <Link
-                  href={'https://www.einargudni.com/'}
-                  className="special-underline no-underline hover:text-gray-100 dark:text-gray-100 hover:dark:text-gray-100"
-                >
-                  Einar Guðjónsson
-                </Link>
-                : Ideas for the Now page, navigation style, and animations.
-              </li>
+              <li>Next.js (React)</li>
+              <li>Tailwind CSS</li>
+              <li>MDX for content</li>
+              <li>Framer Motion</li>
+              <li>Headless UI</li>
+              <li>SWR for data fetching</li>
+              <li>Prisma</li>
+              <li>Deployed on Vercel</li>
+              <li>ESLint + Prettier</li>
             </ul>
           </div>
         </div>
@@ -204,6 +194,7 @@ export default function AuthorLayout({ children, frontMatter }) {
                 text1={d.text1}
                 text2={d.text2}
                 text3={d.text3}
+                text4={d.text4}
               />
             ))}
           </div>

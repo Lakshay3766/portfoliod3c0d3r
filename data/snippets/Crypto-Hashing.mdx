@@ -1,0 +1,59 @@
+---
+title: 'Crypto Hashing + AES (Node.js)'
+date: '2025-11-09'
+tags: [crypto, security, node]
+draft: false
+summary: 'Quick SHA-256, bcrypt, and AES-256-GCM examples'
+images: []
+layout: PostSimple
+---
+
+## SHA-256
+
+```js showLineNumbers
+import crypto from 'crypto'
+
+function sha256Hex(input) {
+  return crypto.createHash('sha256').update(input).digest('hex')
+}
+
+console.log(sha256Hex('d3c0d3r'))
+```
+
+## bcrypt (password hashing)
+
+```js showLineNumbers
+import bcrypt from 'bcryptjs'
+
+const password = 'superSecret!'
+const salt = bcrypt.genSaltSync(12)
+const hash = bcrypt.hashSync(password, salt)
+
+console.log('Hash:', hash)
+console.log('Match?', bcrypt.compareSync(password, hash))
+```
+
+## AES-256-GCM (authenticated encryption)
+
+```js showLineNumbers
+import crypto from 'crypto'
+
+function encryptGCM(plaintext, key) {
+  const iv = crypto.randomBytes(12) // 96-bit IV
+  const cipher = crypto.createCipheriv('aes-256-gcm', key, iv)
+  const ciphertext = Buffer.concat([cipher.update(plaintext, 'utf8'), cipher.final()])
+  const tag = cipher.getAuthTag()
+  return { iv, ciphertext, tag }
+}
+
+function decryptGCM({ iv, ciphertext, tag }, key) {
+  const decipher = crypto.createDecipheriv('aes-256-gcm', key, iv)
+  decipher.setAuthTag(tag)
+  const plaintext = Buffer.concat([decipher.update(ciphertext), decipher.final()])
+  return plaintext.toString('utf8')
+}
+
+const key = crypto.randomBytes(32) // 256-bit key
+const sealed = encryptGCM('dark web ops', key)
+console.log('Decrypted:', decryptGCM(sealed, key))
+```

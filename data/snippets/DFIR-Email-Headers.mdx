@@ -1,0 +1,43 @@
+---
+title: 'DFIR: Parse Email Headers'
+date: '2025-11-09'
+tags: [dfir, email, security]
+draft: false
+summary: 'Extract Received chain, SPF/DKIM/DMARC, and anomalies from raw headers'
+images: []
+layout: PostSimple
+---
+
+```js showLineNumbers
+// Minimal parser to extract key fields from raw email headers
+function parseHeaders(raw) {
+  const lines = raw.split(/\r?\n/)
+  const headers = {}
+
+  for (const line of lines) {
+    const idx = line.indexOf(':')
+    if (idx === -1) continue
+    const key = line.slice(0, idx).trim().toLowerCase()
+    const value = line.slice(idx + 1).trim()
+    headers[key] = headers[key] ? headers[key] + ' ' + value : value
+  }
+
+  const received = lines.filter((l) => l.toLowerCase().startsWith('received:'))
+  return {
+    from: headers['from'],
+    to: headers['to'],
+    subject: headers['subject'],
+    messageId: headers['message-id'],
+    spf: headers['authentication-results']?.match(/spf=(\w+)/)?.[1] || 'unknown',
+    dkim: headers['authentication-results']?.match(/dkim=(\w+)/)?.[1] || 'unknown',
+    dmarc: headers['authentication-results']?.match(/dmarc=(\w+)/)?.[1] || 'unknown',
+    receivedChain: received,
+  }
+}
+
+const raw = `From: attacker@example.com\nTo: you@example.com\nSubject: Urgent\n` +
+  `Authentication-Results: spf=fail dkim=pass dmarc=fail\n` +
+  `Received: from mail.evil.tld (HELO smtp) by mx.your.tld with ESMTPSA;`
+
+console.log(parseHeaders(raw))
+```

@@ -13,9 +13,9 @@ const siteMetadata = {
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'd3c0d3r376@gmail.com',
-  github: 'https://github.com/d3c0d3r',
+  github: 'https://github.com/lakshay3766',
   twitter: '',
-  linkedin: '',
+  linkedin: 'https://github.com/lakshay3766',
   website: 'https://d3c0d3r.vercel.app',
   locale: 'en-US',
   analytics: {

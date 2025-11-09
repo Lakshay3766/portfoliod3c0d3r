@@ -3,10 +3,10 @@ name: D3c0d3r
 avatar: /image.png
 occupation: Cybersecurity
 company: 
-email: 
+email: d3c0d3r376@gmail.com
 twitter: 
-linkedin: 
-github: 
+linkedin: https://github.com/lakshay3766
+github: https://github.com/lakshay3766
 text1: |
   I am a cybersecurity practitioner focused on vulnerability assessment and penetration testing (VAPT), OSINT, digital forensics, incident response, and SOC operations.
   I work on building security automation—especially phishing detection and PII leak prevention—and contribute to investigations with actionable reporting and tooling.
