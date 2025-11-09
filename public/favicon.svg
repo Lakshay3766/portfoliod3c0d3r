@@ -1,10 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="c" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#00D1FF"/>
-      <stop offset="1" stop-color="#7C3AED"/>
+    <linearGradient id="hoodGradient" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0b1220"/>
     </linearGradient>
   </defs>
-  <rect x="10" y="14" width="44" height="36" rx="10" ry="10" fill="none" stroke="url(#c)" stroke-width="4"/>
-  <path d="M32 24c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10-4.5-10-10-10zm0 6a4 4 0 014 4v4a4 4 0 11-8 0v-4a4 4 0 014-4z" fill="url(#c)"/>
+  <!-- Hood silhouette -->
+  <path d="M8 40c0-12 8-26 24-26s24 14 24 26c0 8-12 12-24 12S8 48 8 40z" fill="url(#hoodGradient)"/>
+  <!-- Face mask -->
+  <rect x="22" y="30" width="20" height="12" rx="6" fill="#0a0a0a" stroke="#22c55e" stroke-width="2"/>
+  <!-- Eyes -->
+  <circle cx="28" cy="36" r="2" fill="#22c55e"/>
+  <circle cx="36" cy="36" r="2" fill="#22c55e"/>
+  <!-- Code braces -->
+  <path d="M16 32l-6 6l6 6" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 32l6 6l-6 6" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Subtle glow -->
+  <ellipse cx="32" cy="52" rx="18" ry="3" fill="#22c55e" opacity="0.15"/>
 </svg>

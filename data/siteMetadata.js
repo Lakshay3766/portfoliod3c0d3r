@@ -12,10 +12,10 @@ const siteMetadata = {
   siteLogo: '/static/images/cyber-logo.svg',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'd3c0d3r376@gmail.com',
+  email: 'd3c0d3r376@Gmail.com',
   github: 'https://github.com/lakshay3766',
   twitter: '',
-  linkedin: 'https://github.com/lakshay3766',
+  linkedin: 'https://linkedin.com/in/LakshayMadaan376',
   website: 'https://d3c0d3r.vercel.app',
   locale: 'en-US',
   analytics: {
