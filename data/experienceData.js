@@ -5,8 +5,10 @@ const experienceData = [
     location: 'India',
     range: 'Sept 2025 – Present',
     url: '',
-    text1: 'Perform VAPT for enterprise applications and internal networks, identifying critical vulnerabilities.',
-    text2: 'Investigate Army Intelligence cyber cases including phishing campaigns and malware threats.',
+    text1:
+      'Perform VAPT for enterprise applications and internal networks, identifying critical vulnerabilities.',
+    text2:
+      'Investigate Army Intelligence cyber cases including phishing campaigns and malware threats.',
     text3: 'Assist in SOC operations: SIEM monitoring, malware analysis, and incident response.',
     text4: 'Develop automation tools for phishing detection and PII leak prevention.',
   },

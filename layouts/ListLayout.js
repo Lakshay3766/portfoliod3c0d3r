@@ -8,10 +8,10 @@ import ViewCounter from '@/components/ViewCounter'
 export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((frontMatter) => {
-    const tags = Array.isArray(frontMatter.tags) ? frontMatter.tags : [];
-    const searchContent = frontMatter.title + frontMatter.summary + tags.join(' ');
-    return searchContent.toLowerCase().includes(searchValue.toLowerCase());
-  });
+    const tags = Array.isArray(frontMatter.tags) ? frontMatter.tags : []
+    const searchContent = frontMatter.title + frontMatter.summary + tags.join(' ')
+    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
+  })
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
@@ -51,8 +51,8 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
         <ul>
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((frontMatter) => {
-            const { slug, date, title, summary } = frontMatter;
-            const tags = Array.isArray(frontMatter.tags) ? frontMatter.tags : [];
+            const { slug, date, title, summary } = frontMatter
+            const tags = Array.isArray(frontMatter.tags) ? frontMatter.tags : []
             return (
               <Link
                 href={`/blog/${slug}`}

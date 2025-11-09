@@ -58,18 +58,18 @@ const defaultTheme = {
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <SessionProvider session={session}>
-        <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
-          <ProgressBar bgcolor="#DE1D8D" />
-          <ScrollTop />
-          <Head>
-            <meta content="width=device-width, initial-scale=1" name="viewport" />
-          </Head>
-          {isDevelopment && isSocket && <ClientReload />}
-          <Analytics />
-          <LayoutWrapper>
-            <Component {...pageProps} />
-          </LayoutWrapper>
-        </ThemeProvider>
+      <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
+        <ProgressBar bgcolor="#DE1D8D" />
+        <ScrollTop />
+        <Head>
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+        </Head>
+        {isDevelopment && isSocket && <ClientReload />}
+        <Analytics />
+        <LayoutWrapper>
+          <Component {...pageProps} />
+        </LayoutWrapper>
+      </ThemeProvider>
     </SessionProvider>
   )
 }

@@ -31,7 +31,7 @@ export async function getStaticProps() {
     '1002104154737684480',
   ])
 
-  return { props: { tweets } }
+  return { props: { tweets: tweets || [] } }
 }
 
 export default function Tweets({ tweets }) {

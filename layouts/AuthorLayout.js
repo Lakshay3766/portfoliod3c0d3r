@@ -83,8 +83,7 @@ export default function AuthorLayout({ children, frontMatter }) {
             <br />
             <p className="sm:block md:hidden lg:hidden">
               I am always looking to learn new things. I am currently working on projects focused on
-              cybersecurity, OSINT, and defensive tooling.
-              At the same time I am{' '}
+              cybersecurity, OSINT, and defensive tooling. At the same time I am{' '}
               <RoughNotation
                 type="underline"
                 show={true}
@@ -93,7 +92,8 @@ export default function AuthorLayout({ children, frontMatter }) {
                 animationDuration={3000}
                 multiline={true}
               >
-                actively on the lookout for remote internships in cybersecurity or data-related roles.
+                actively on the lookout for remote internships in cybersecurity or data-related
+                roles.
               </RoughNotation>
             </p>
             <p className="hidden md:block">
@@ -107,7 +107,9 @@ export default function AuthorLayout({ children, frontMatter }) {
                 strokeWidth="3"
                 show={true}
               >
-                <span className="text-black dark:text-white">cybersecurity, OSINT, and related tooling.</span>
+                <span className="text-black dark:text-white">
+                  cybersecurity, OSINT, and related tooling.
+                </span>
               </RoughNotation>
               At the same time I am{' '}
               <RoughNotation
@@ -118,7 +120,8 @@ export default function AuthorLayout({ children, frontMatter }) {
                 animationDuration={3000}
                 multiline={true}
               >
-                actively on the lookout for remote internships in cybersecurity or data-related roles.
+                actively on the lookout for remote internships in cybersecurity or data-related
+                roles.
               </RoughNotation>
             </p>
             <br />
@@ -159,11 +162,10 @@ export default function AuthorLayout({ children, frontMatter }) {
             <br />
             <h1>About this site</h1>
             <p>
-              Welcome to my home on the internet. This site serves as a blog and portfolio, where I share insights on cybersecurity, OSINT, and threat intelligence. Opinions are my own.
+              Welcome to my home on the internet. This site serves as a blog and portfolio, where I
+              share insights on cybersecurity, OSINT, and threat intelligence. Opinions are my own.
             </p>
-            <p>
-              I built this site with inspiration from the amazing community:
-            </p>
+            <p>I built this site with inspiration from the amazing community:</p>
             <ul>
               <li>
                 <Link

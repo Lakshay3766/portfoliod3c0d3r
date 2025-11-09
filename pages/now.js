@@ -77,7 +77,6 @@ export default function Now(currentlyReading) {
     return () => clearInterval(timer)
   }, [])
 
-
   var d3c0d3rBirthDate = '2000-04-16'
   var birthDate = new Date(d3c0d3rBirthDate)
 
@@ -142,14 +141,18 @@ export default function Now(currentlyReading) {
         <div>
           <div className="flex justify-between gap-5">
             <div className="mt-2 mb-10 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">
-              <span className="ml-2 font-semibold">Name:</span>{' '}
-              <span>{siteMetadata.author}</span>
+              <span className="ml-2 font-semibold">Name:</span> <span>{siteMetadata.author}</span>
               <br />
               <span className="ml-2 font-semibold">Role:</span>{' '}
               <span>Cybersecurity Intern @ Cyber Cell</span>
               <br />
               <span className="ml-2 font-semibold">Email:</span>{' '}
-              <a href={`mailto:${siteMetadata.email}`} className="underline-offset-1 hover:underline">{siteMetadata.email}</a>
+              <a
+                href={`mailto:${siteMetadata.email}`}
+                className="underline-offset-1 hover:underline"
+              >
+                {siteMetadata.email}
+              </a>
             </div>
 
             <div className="mt-2 mb-10 w-1/2 rounded-md border border-gray-600 p-1 text-sm dark:border-gray-200">

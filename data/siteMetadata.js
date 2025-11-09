@@ -46,7 +46,7 @@ const siteMetadata = {
     },
   },
   socialAccount: {
-  twitter: '_d3c0d3r_',
+    twitter: '_d3c0d3r_',
   },
 }
 

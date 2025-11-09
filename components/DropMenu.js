@@ -232,7 +232,7 @@ export default function DropMenu() {
                 </Link>
               )}
             </Menu.Item>
-            // Guestbook removed
+            {/* Guestbook removed */}
             <Menu.Item>
               {({ active }) => (
                 <Link href="/uses">

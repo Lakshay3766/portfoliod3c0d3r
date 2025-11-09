@@ -3,9 +3,9 @@
   "version": "1.5.6",
   "private": true,
   "author": {
-  "name": "d3c0d3r",
-  "email": "d3c0d3r2000@gmail.com",
-  "url": "https://d3c0d3r.vercel.app/"
+    "name": "d3c0d3r",
+    "email": "d3c0d3r2000@gmail.com",
+    "url": "https://d3c0d3r.vercel.app/"
   },
   "scripts": {
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",

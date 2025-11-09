@@ -472,10 +472,10 @@ export default function PrivacyPolicy() {
               By email:{' '}
               <a
                 href="mailto:lakshaymadaan376@gmail.com"
-                  rel="external nofollow noopener noreferrer"
-                  target="_blank"
-                >
-                  lakshaymadaan376@gmail.com
+                rel="external nofollow noopener noreferrer"
+                target="_blank"
+              >
+                lakshaymadaan376@gmail.com
               </a>
             </li>
           </ul>

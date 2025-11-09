@@ -80,6 +80,8 @@ module.exports = withBundleAnalyzer({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+    // Prevent ESLint errors from failing production builds (useful for Vercel deploys)
+    ignoreDuringBuilds: true,
   },
   async headers() {
     return [

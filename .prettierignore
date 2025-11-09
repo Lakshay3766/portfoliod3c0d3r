@@ -1,0 +1,13 @@
+# Ignore build and dependency folders
+node_modules
+.next
+
+# Ignore problematic or generated HTML
+public/terms.html
+public/*.html
+
+# Ignore other static files
+public/**/*.svg
+public/**/*.png
+public/**/*.ico
+public/**/*.webmanifest

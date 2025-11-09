@@ -10,7 +10,6 @@ APIs are the backbone of modern systems — and secrets like API keys and refres
 
 ## Key Principles
 
-
 ## Recommended Architecture
 
 1. Use short-lived access tokens and a trusted token issuer (STS). Long-lived refresh tokens should be stored encrypted and rotated.
@@ -36,26 +35,33 @@ When access token expires:
 
 ## Practical checklist
 
-
 Following these practices reduces blast radius when a secret leaks and increases the organization's ability to recover quickly.
 
 ---
+
 title: Quantum-Safe Authentication for APIs
 date: '2025-11-09'
 tags: ['cyber', 'security', 'quantum']
 draft: false
 summary: Why quantum-safe authentication matters for APIs and how to prepare for the post-quantum era.
+
 ---
 
-<img className="inline rounded-lg" src="/static/images/Blog/cyber-tokens.jpg" alt="Quantum Security" />
+<img
+  className="inline rounded-lg"
+  src="/static/images/Blog/cyber-tokens.jpg"
+  alt="Quantum Security"
+/>
 
 As quantum computers become more practical, traditional cryptography faces new risks. API authentication must evolve to resist quantum attacks and ensure long-term security.
 
 **What is quantum-safe authentication?**
+
 - It uses algorithms that are resistant to attacks from quantum computers, such as lattice-based, hash-based, or code-based cryptography.
 - It avoids reliance on RSA and ECC, which are vulnerable to Shor’s algorithm.
 
 **How to prepare:**
+
 1. Audit your API endpoints for use of RSA/ECC-based authentication and encryption.
 2. Start testing post-quantum algorithms (NIST finalists: Kyber, Dilithium, etc.) in non-production environments.
 3. Monitor vendor libraries and cloud providers for quantum-safe support.

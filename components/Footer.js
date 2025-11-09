@@ -10,7 +10,7 @@ export default function Footer() {
           <NowPlayingFooter />
         </div>
         <div className="mb-2 hidden text-sm text-gray-500 dark:text-gray-400 md:flex">
-            <div className="mx-1">
+          <div className="mx-1">
             <Link href="https://d3c0d3r.vercel.app" className="link-underline">
               d3c0d3r{` © ${new Date().getFullYear()}`}
             </Link>
@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mb-2 text-sm text-gray-500 dark:text-gray-400 sm:block md:hidden lg:hidden">
-            <div className="mx-1">
+          <div className="mx-1">
             <Link href="https://d3c0d3r.vercel.app" className="link-underline">
               d3c0d3r{` © ${new Date().getFullYear()}`}
             </Link>
