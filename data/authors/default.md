@@ -1,5 +1,5 @@
 ---
-name: Parth
+name: D3c0d3r
 avatar: /image.png
 occupation: Cybersecurity
 company: 
@@ -32,14 +32,14 @@ text3: |
   - Student Director, Unstop (Dare2Compete), India (Oct 2024 – May 2025): Led engagement campaigns; represented the organization across student and professional platforms.
 
   Projects
-  - PII & Phishing Detection System — AI-powered real-time PII leak and phishing URL detection.
+  - PII & Phishing Detection System — Automation-driven real-time PII leak and phishing URL detection.
   - OSINT Cyber Cell Tool — Intelligence gathering system used in real Cyber Cell cases.
   - Access Denied (2nd Prize) — Real-time malware detection mobile app.
   - Automatic SOS App — Emergency safety app enhancing women’s security.
 
   Achievements
   - 2nd Prize, Microsoft Hackathon (2025)
-  - Top 5 Finalist, Google Gen AI Hackathon (2024)
+  - Finalist, Capture The Flag (CTF) events (2024)
   - Finalist, Smart India Hackathon (SIH) (2024)
   - Winner, Maestros (Software & Hardware) (2024)
   - Winner, Manthan – National Hackathon (2023)

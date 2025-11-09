@@ -1,12 +1,12 @@
 const projectsData = [
   {
     title: 'PII & Phishing Detection System',
-    description: 'AI-powered real-time PII leak & phishing URL detection.',
+    description: 'Automation-driven real-time PII leak & phishing URL detection.',
     imgSrc: '',
     href: '',
     github: '',
     tech1: 'Python',
-    tech2: 'AI',
+    tech2: 'Automation',
     tech3: 'Security',
   },
   {

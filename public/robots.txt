@@ -1,4 +1,4 @@
-Sitemap: https://parth.dev/sitemap.xml
+Sitemap: https://d3c0d3r.vercel.app/sitemap.xml
 
 User-agent: *
 Allow: /
