@@ -74,25 +74,15 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                     </dl>
                     {cover ? (
                       <div className="mb-3 overflow-hidden rounded-xl shadow-lg ring-1 ring-white/10">
-                        {String(cover).toLowerCase().endsWith('.svg') ? (
-                          <div className="flex h-48 w-full items-center justify-center bg-gradient-to-br from-gray-800 via-fuchsia-700 to-indigo-700">
-                            <img
-                              src={cover}
-                              alt={title}
-                              width={960}
-                              height={540}
-                              className="h-40 w-auto object-contain p-4"
-                            />
-                          </div>
-                        ) : (
+                        <div className="flex h-48 w-full items-center justify-center bg-gradient-to-br from-gray-800 via-fuchsia-700 to-indigo-700">
                           <Image
                             src={cover}
                             alt={title}
                             width={960}
                             height={540}
-                            className="h-48 w-full rounded-xl object-cover"
+                            className={String(cover).toLowerCase().endsWith('.svg') ? 'h-48 w-full object-contain p-4' : 'h-48 w-full object-cover'}
                           />
-                        )}
+                        </div>
                       </div>
                     ) : (
                       <div className="mb-3">

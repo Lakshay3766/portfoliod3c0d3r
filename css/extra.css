@@ -237,3 +237,22 @@ input:-webkit-autofill:focus {
   transform: translateY(-2px);
   transition: transform 34ms;
 }
+/* Scroll-triggered entrance animations */
+.aos {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.aos[data-animation="fade-up"] {
+  transform: translateY(12px);
+}
+.aos[data-animation="fade-left"] {
+  transform: translateX(12px);
+}
+.aos[data-animation="scale-in"] {
+  transform: scale(0.98);
+}
+.aos.aos-in {
+  opacity: 1;
+  transform: none;
+}

@@ -16,7 +16,7 @@
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky install"
   },
-  "license": "MIT",
+  
   "engines": {
     "node": "16.x"
   },

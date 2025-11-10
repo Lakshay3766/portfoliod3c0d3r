@@ -14,6 +14,10 @@ import DropMenu from './DropMenu.js'
 
 const LayoutWrapper = ({ children }) => {
   const router = useRouter()
+  const safePath = router?.asPath ? router.asPath.split('?')[0] : '/'
+  const isBlogPost =
+    safePath.startsWith('/blog/') && safePath !== '/blog' && !safePath.startsWith('/blog/page/')
+  const displayPath = isBlogPost ? '/blog/cybersecurity' : safePath
 
   return (
     <SectionContainer>
@@ -34,7 +38,7 @@ const LayoutWrapper = ({ children }) => {
                 )}
               </div> */}
               <div className="text-primary-color dark:text-primary-color-dark flex items-center justify-between text-xl font-semibold">
-                {`~${router.asPath}`}{' '}
+                {`~${displayPath}`}{' '}
                 <Typewriter
                   options={{
                     strings: [],

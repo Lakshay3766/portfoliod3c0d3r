@@ -7,6 +7,14 @@ images: ['/static/images/Blog/token-rotation.svg']
 draft: false
 ---
 
+## Key Takeaways
+
+- OAuth 2.0 relies on refresh tokens to maintain sessions securely.
+- Store tokens server-side; avoid exposing secrets in client code.
+- Scope selection should be minimal and reviewed periodically.
+- Rotate credentials and handle token revocation gracefully.
+- Practical tip: Implement robust error handling and retry logic for token refresh.
+
 <img className="inline rounded-lg" src="/static/images/Blog/token-rotation.svg" alt="APIs & Tokens" />
 
 APIs are the backbone of modern systems — and secrets like API keys and refresh tokens are the crown jewels attackers seek. This post gives a short, practical guide to issuing, storing, and rotating tokens securely.

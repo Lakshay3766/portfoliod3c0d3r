@@ -8,6 +8,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import AnimateOnScroll from '@/components/AnimateOnScroll'
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -17,7 +18,7 @@ import {
   WhatsappShareButton,
 } from 'react-share'
 import { SocialIcon } from 'react-social-icons'
-import { HiOutlinePencil, HiOutlineClock, HiOutlineEye } from 'react-icons/hi'
+import { HiOutlinePencil, HiOutlineClock, HiOutlineEye, HiOutlineArrowLeft } from 'react-icons/hi'
 import { BsCalendarDate } from 'react-icons/bs'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
@@ -27,6 +28,9 @@ const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day:
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
   const { slug, fileName, date, title, images, tags, readingTime } = frontMatter
   const postUrl = `${siteMetadata.siteUrl}/blog/${slug}`
+
+  // Render a friendly path breadcrumb using the actual post title
+  const pathTitlePart = title
   return (
     <SectionContainer>
       <BlogSEO
@@ -43,31 +47,56 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      <BsCalendarDate className="mr-1.5 -mt-1.5 inline h-4 w-4" />
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
+                    <AnimateOnScroll animation="fade-up" duration={600}>
+                      <time dateTime={date}>
+                        <BsCalendarDate className="mr-1.5 -mt-1.5 inline h-4 w-4" />
+                        {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                      </time>
+                    </AnimateOnScroll>
                   </dd>
                 </div>
               </dl>
-              <div>
-                <PageTitle>{title}</PageTitle>
-              </div>
-              <div className="flex justify-center gap-5 py-4">
-                <span className="flex items-center gap-1.5">
-                  <HiOutlinePencil className="h-5 w-5" />
-                  {readingTime.words} words
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <HiOutlineClock className="h-5 w-5" />
-                  {readingTime.text}
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <HiOutlineEye className="h-5 w-5" />
-                  <ViewCounter className="ml-0" slug={slug} blogPage={true} />
-                  <div className="-ml-0.5">Views</div>
-                </span>
-              </div>
+              <AnimateOnScroll animation="fade-up" duration={600}>
+                <div className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                  <code className="rounded bg-gray-100 px-2 py-0.5 dark:bg-gray-800">
+                    ~/blog/{pathTitlePart}
+                  </code>
+                </div>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-up" duration={620}>
+                <div className="mb-2 flex justify-center">
+                  <Link
+                    href="/blog"
+                    className="inline-flex items-center rounded-md border border-gray-300 px-3 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800"
+                    aria-label="Back to Blog"
+                  >
+                    <HiOutlineArrowLeft className="mr-1 h-4 w-4" />
+                    Back to Blog
+                  </Link>
+                </div>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-up" duration={650}>
+                <div>
+                  <PageTitle>{title}</PageTitle>
+                </div>
+              </AnimateOnScroll>
+              <AnimateOnScroll animation="fade-up" duration={700}>
+                <div className="flex justify-center gap-5 py-4">
+                  <span className="flex items-center gap-1.5">
+                    <HiOutlinePencil className="h-5 w-5" />
+                    {readingTime.words} words
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <HiOutlineClock className="h-5 w-5" />
+                    {readingTime.text}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <HiOutlineEye className="h-5 w-5" />
+                    <ViewCounter className="ml-0" slug={slug} blogPage={true} />
+                    <div className="-ml-0.5">Views</div>
+                  </span>
+                </div>
+              </AnimateOnScroll>
             </div>
           </header>
           <div
@@ -81,15 +110,17 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   {authorDetails.map((author) => (
                     <li className="flex items-center space-x-2" key={author.name}>
                       {author.avatar && (
-                        <Image
-                          src={author.avatar}
-                          width="38px"
-                          height="38px"
-                          alt="avatar"
-                          className="h-10 w-10 rounded-full"
-                          placeholder="blur"
-                          blurDataURL="/static/images/SVG-placeholder.png"
-                        />
+                        <AnimateOnScroll animation="scale-in" duration={600}>
+                          <Image
+                            src={author.avatar}
+                            width={38}
+                            height={38}
+                            alt="avatar"
+                            className="h-10 w-10 rounded-full"
+                            placeholder="blur"
+                            blurDataURL="/static/images/SVG-placeholder.png"
+                          />
+                        </AnimateOnScroll>
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
@@ -125,7 +156,9 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
+              <AnimateOnScroll animation="fade-up" duration={750}>
+                <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
+              </AnimateOnScroll>
               <div className="grid place-items-center pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <div className="flex items-center space-x-4">
                   <TwitterShareButton

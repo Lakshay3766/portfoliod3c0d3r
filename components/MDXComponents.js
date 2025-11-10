@@ -9,6 +9,7 @@ import { BlogNewsletterForm } from './NewsletterForm'
 
 export const MDXComponents = {
   Image,
+  img: (props) => <Image {...props} />,
   TOCInline,
   a: CustomLink,
   pre: Pre,

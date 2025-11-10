@@ -22,6 +22,7 @@ const LyketProvider = dynamic(
 )
 
 const isDevelopment = process.env.NODE_ENV === 'development'
+const isProduction = process.env.NODE_ENV === 'production'
 const isSocket = process.env.SOCKET
 
 NProgress.configure({ showSpinner: false })
@@ -65,7 +66,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
         {isDevelopment && isSocket && <ClientReload />}
-        <Analytics />
+        {isProduction && <Analytics />}
         <LayoutWrapper>
           <Component {...pageProps} />
         </LayoutWrapper>

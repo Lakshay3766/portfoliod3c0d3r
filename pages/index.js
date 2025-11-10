@@ -43,7 +43,7 @@ export default function Home({ posts }) {
                 color="#DE1D8D"
                 animationDelay={1000}
                 animationDuration={2500}
-                className="text-slate-200"
+                className="text-slate-700 dark:text-slate-200"
               >
                 thoughts, reflections & everything&nbsp;
               </RoughNotation>
@@ -61,7 +61,7 @@ export default function Home({ posts }) {
                   color="#DE1D8D"
                   animationDelay={1000}
                   animationDuration={2500}
-                  className="text-slate-200"
+                  className="text-slate-700 dark:text-slate-200"
                 >
                   thoughts, reflections & everything&nbsp;
                 </RoughNotation>

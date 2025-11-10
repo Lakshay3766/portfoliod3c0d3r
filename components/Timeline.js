@@ -1,11 +1,7 @@
-import { FaGraduationCap, FaBlackTie, FaTrophy } from 'react-icons/fa'
-import { AiOutlineCode } from 'react-icons/ai'
+import { FaGraduationCap, FaBlackTie, FaTrophy, FaBaby } from 'react-icons/fa'
 import { SiLeetcode } from 'react-icons/si'
-import { Disclosure, Transition } from '@headlessui/react'
-import { HiChevronDown, HiOutlineDatabase } from 'react-icons/hi'
-import { FaBaby } from 'react-icons/fa'
+import { HiOutlineDatabase } from 'react-icons/hi'
 import { BsBuilding } from 'react-icons/bs'
-import { RiDoorClosedLine } from 'react-icons/ri'
 import { TbDeviceDesktopAnalytics } from 'react-icons/tb'
 
 export default function Timeline() {
@@ -132,70 +128,15 @@ export default function Timeline() {
             2nd Prize, Microsoft Hackathon (2025) • Top 5 Finalist, Google Gen AI Hackathon (2024) • Finalist, Smart India Hackathon (2024) • Winner, Maestros (Software & Hardware) (2024) • Winner, Manthan – National Hackathon (2023) • Winner, Ideathon (PIET) (2023)
           </p>
         </li>
-        <Disclosure>
-          {({ open }) => (
-            <>
-              <Disclosure.Button>
-                <div className="text-small ml-1.5 flex">
-                  <HiChevronDown
-                    className={`h-6 w-6 text-gray-600  ${open ? 'rotate-180 transform ' : ''}`}
-                  />
-                </div>
-              </Disclosure.Button>
-              <Transition
-                show={open}
-                enter="transition duration-400 ease-in-out"
-                enterFrom="transform scale-95 opacity-0"
-                enterTo="transform scale-400 opacity-100"
-                leave="transition duration-75 ease-out"
-                leaveFrom="transform scale-100 opacity-100"
-                leaveTo="transform scale-95 opacity-0"
-              >
-                <Disclosure.Panel>
-                  {' '}
-                  <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white  px-4  py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
-                    <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-purple-200 ring-8 ring-white dark:bg-purple-900 dark:ring-gray-900">
-                      <RiDoorClosedLine />
-                    </span>
-                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">Access Denied</h3>
-                    <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                      2024 – Present
-                    </time>
-                    <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-                      Ongoing security project: real‑time malware detection app; collaboration welcome.
-                    </p>
-                  </li>
-                  <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white  px-4  py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
-                    <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-fuchsia-200 ring-8 ring-white dark:bg-fuchsia-900 dark:ring-gray-900">
-                      <AiOutlineCode />
-                    </span>
-                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">
-                      First Code
-                    </h3>
-                    <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                      2015
-                    </time>
-                    <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-                      Wrote my first program in C; foundation for security engineering.
-                    </p>
-                  </li>
-                  <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white  px-4  py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
-                    <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-200 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
-                      <FaBaby />
-                    </span>
-                    <h3 className="text-base font-semibold text-gray-900 dark:text-white">Born</h3>
-                    <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-                      2000
-                    </time>
-                    <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">
-                      Connected to the internet
-                    </p>
-                  </li>
-                </Disclosure.Panel>
-              </Transition>
-            </>
-          )}
-        </Disclosure>
+        {/* Early life */}
+        <li className="mb-4 ml-8 rounded-md border border-gray-100 bg-white  px-4  py-4 shadow-sm shadow-gray-300 dark:border-zinc-900 dark:bg-zinc-900 dark:shadow-none">
+          <span className="absolute -left-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-200 ring-8 ring-white dark:bg-blue-900 dark:ring-gray-900">
+            <FaBaby />
+          </span>
+          <h3 className="text-base font-semibold text-gray-900 dark:text-white">Born</h3>
+          <time className="text-sm font-normal leading-none text-gray-400 dark:text-gray-500">2004</time>
+          <p className="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">—</p>
+        </li>
       </ol>
     </div>
   )
